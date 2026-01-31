@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box; 
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    /* align-items: flex-start; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(255, 255, 255);
+    min-height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.form-container {
+    max-width: 300px;
+    width: 100%;
+    /* height: 220px; */
+    background-color: rgb(212, 230, 230);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(50, 100 ,200);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    box-shadow: 1px 1px 5px rgb(50, 100, 200);
+}
+
+label {
+    width: 40%;
+    padding: 7px;
+    color: rgb(69, 69, 207)
+}
+
+input {
+    width: 45%;
+    border: 1px solid rgb(50, 100 ,200);
+    padding: 2px;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    box-shadow:1px 1px 4px rgb(50, 100 ,200);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+input:hover {
+    cursor: text;
+
+}
+
+input:focus {
+    background-color: rgb(154, 186, 255);
+    border: none
+}
+
+.submit {
+    width: 100%;
+    padding: 3px;
+    margin-right: 6.5px;
+    margin-left: 6.5px ;
+    margin-top: 10px;
+    margin-bottom: 7px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(50, 100 ,200);
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgb(50, 100, 200);
+    transition: background-color 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.submit:hover {
+    cursor: pointer;
+    background-color: rgb(124, 186, 255);
+    border: rgb(124, 186, 255);
+    box-shadow: 1px 1px 5px rgb(50, 100, 200);
+    background-image: linear-gradient(to bottom right, rgb(50, 100, 200), rgb(100, 100, 200));
+    color: rgb(255, 255, 255);
+    transform: scale(1.025);
+}
+
+.user-entry p {
+    border: 2px solid rgb(50, 100, 200);
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: 10px;
+}
