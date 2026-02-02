@@ -20,14 +20,15 @@ body {
 .form-container {
     max-width: 300px;
     width: 100%;
+    height: auto;
     /* height: 220px; */
     background-color: rgb(212, 230, 230);
     padding: 10px;
     border-radius: 5px;
     border: 1px solid rgb(50, 100 ,200);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: block;
+    /* align-items: center;
+    justify-content:space-between; */
     /* flex-direction: column; */
     flex-wrap: wrap;
     box-shadow: 1px 1px 5px rgb(50, 100, 200);
@@ -40,33 +41,64 @@ label {
 }
 
 input {
-    width: 45%;
-    border: 1px solid rgb(50, 100 ,200);
+    width: 100%;
+    border: none;
     padding: 2px;
     border-radius: 5px;
     color: rgb(0, 0, 0);
     box-shadow:1px 1px 4px rgb(50, 100 ,200);
     overflow: hidden;
     text-overflow: ellipsis;
+    padding: 4px 0;
 }
+
+#spanName {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;  
+  display: block;    
+}
+
+#spanEmail {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;  
+  display: block;    
+}
+
+#spanAge {
+  color: red;
+  font-size: 12px;
+  margin: 5px 0;  
+  display: block;    
+}
+
 
 input:hover {
     cursor: text;
-
+    /* border: 1px solid rgb(255, 0, 0) */
 }
 
-input:focus {
+/* input:focus {
     background-color: rgb(154, 186, 255);
-    border: none
+    border: 1px solid rgb(255, 0, 0)
+} */
+input[type='text'] {
+    padding: 5px
+}
+
+input[type='number'] {
+    padding: 5px
 }
 
 .submit {
     width: 100%;
-    padding: 3px;
-    margin-right: 6.5px;
+    padding: 6px;
+    margin-top: 12px;
+    /* margin-right: 6.5px;
     margin-left: 6.5px ;
     margin-top: 10px;
-    margin-bottom: 7px;
+    margin-bottom: 7px; */
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(50, 100 ,200);
     border-radius: 5px;

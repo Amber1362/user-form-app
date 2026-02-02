@@ -9,7 +9,7 @@ form.addEventListener('submit', function(e) {
    let nameValue = inputName.value;
 
    let inputEmail = document.getElementById('email');
-   let emailValue = inputEmail.value
+   let emailValue = inputEmail.value;
    let emailRegex = /^[A-Za-z\d]+(?:[.+-][a-zA-Z\d]+)*@[a-zA-Z\d]+\.[a-zA-Z0-9]{2,}$/;
     
 
@@ -29,14 +29,42 @@ form.addEventListener('submit', function(e) {
    let textSpan = document.createElement('span');
    textSpan.textContent = 'Name: ' + nameValue + ', Email: ' + emailValue + ', Age: ' + ageValue;
 
-   if(!nameValue) {
-      alert('Enter the name');
-   } else if(!emailValue) {
-      alert('Enter the email');
+   let spanName = document.getElementById('spanName');
+
+   let spanEmail = document.getElementById('spanEmail');
+
+   let spanAge = document.getElementById('spanAge');
+
+   if(!nameValue && !emailValue && !ageValue) {
+      spanName.textContent = '⚠︎ Enter the Name.';
+      spanEmail.textContent = '⚠︎ Enter Email Id.';
+      spanAge.textContent = '⚠︎ Enter the Age.';
+   }else if(nameValue && !emailValue && !ageValue) {
+      spanEmail.textContent = '⚠︎ Enter Email Id.';
+      spanAge.textContent = '⚠︎ Enter the Age.';
+   }
+   else if(!nameValue && emailValue && !ageValue) {
+      spanName.textContent = '⚠︎ Enter the Name.';
+      spanAge.textContent = '⚠︎ Enter the Age.';
+   }
+   else if(!nameValue && !emailValue && ageValue) {
+       spanName.textContent = '⚠︎ Enter the Name.';
+      spanEmail.textContent = '⚠︎ Enter Email Id.';
+   }
+   else if(!nameValue) {
+      spanName.textContent = '⚠︎ Enter the name.';
+   } else
+   if(!emailValue) {
+      spanEmail.textContent = '⚠︎ Enter Email Id.';
    }else if(!emailRegex.test(emailValue.trim())) {
-      alert('Invalid Email ❌');
-   } else if(emailValue) {
+      spanEmail.textContent = '⚠︎ Invalid Email Id.';
+   } else if(!ageValue) {
+      spanAge.textContent = '⚠︎ Enter the Age.'
+   } else if(nameValue || emailValue || ageValue) {
       alert('Successfully Submitted ✅ ')
+      spanName.textContent = '';
+      spanEmail.textContent = '';
+      spanAge.textContent = '';
       container.append(para);
       inputName.value = '';
       inputEmail.value = ''; 
