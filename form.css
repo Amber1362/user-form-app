@@ -44,6 +44,7 @@ input {
     width: 100%;
     border: none;
     padding: 2px;
+    margin-bottom: 5px;
     border-radius: 5px;
     color: rgb(0, 0, 0);
     box-shadow:1px 1px 4px rgb(50, 100 ,200);
