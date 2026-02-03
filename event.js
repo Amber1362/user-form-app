@@ -7,6 +7,7 @@ form.addEventListener('submit', function(e) {
    e.preventDefault();
    let inputName = document.getElementById('name');
    let nameValue = inputName.value;
+   let nameRegex = /^[A-Za-z\s]+$/;
 
    let inputEmail = document.getElementById('email');
    let emailValue = inputEmail.value;
@@ -53,7 +54,12 @@ form.addEventListener('submit', function(e) {
    }
    else if(!nameValue) {
       spanName.textContent = '⚠︎ Enter the name.';
-   } else
+   } else if(!nameRegex.test(nameValue.trim()) && !emailRegex.test(emailValue.trim())) {
+      spanName.textContent = '⚠︎ Invalid Name.';
+      spanEmail.textContent = '⚠︎ Invalid Email Id.';
+   } else if(!nameRegex.test(nameValue.trim())) {
+      spanName.textContent = '⚠︎ Invalid Name.';
+   } else 
    if(!emailValue) {
       spanEmail.textContent = '⚠︎ Enter Email Id.';
    }else if(!emailRegex.test(emailValue.trim())) {
@@ -61,7 +67,7 @@ form.addEventListener('submit', function(e) {
    } else if(!ageValue) {
       spanAge.textContent = '⚠︎ Enter the Age.'
    } else if(nameValue || emailValue || ageValue) {
-      alert('Successfully Submitted ✅ ')
+      alert('Successfully Submitted ✅ ');
       spanName.textContent = '';
       spanEmail.textContent = '';
       spanAge.textContent = '';
@@ -81,7 +87,7 @@ container.addEventListener('click', function(e) {
     if(e.target.classList.contains('delete-btn') && confirm('Are you sure?')) { 
       e.target.parentElement.remove();
       count--;
-      totalCount.textContent = 'Total Entries: ' + count
+      totalCount.textContent = 'Total Entries: ' + count;
     };
 
     if(e.target.classList.contains('edit-btn')) {
@@ -91,19 +97,25 @@ container.addEventListener('click', function(e) {
 
      let newName = prompt('Enter new name: ', span.textContent.split(', ')[0].split(': ')[1]);
      let newEmail = prompt('Enter new email: ', span.textContent.split(', ')[1].split(': ')[1]);
-     let newAge = prompt('Enter new age: ', span.textContent.split(', ')[2].split(': ')[1])
+     let newAge = prompt('Enter new age: ', span.textContent.split(', ')[2].split(': ')[1]);
+
+     if(!nameRegex.test(newName)) {
+      alert('Invalid Name');
+      return;
+     };
 
      if(!editEmailRegex.test(newEmail)) {
          alert('Invalid Email Id');
          return;
-      }
+      };
+
      if(newName && newEmail && newAge) {
       newName = newName.trim();
       newEmail = newEmail.trim();
-      newAge = newAge.trim();
+      newAge = Math.round(newAge.trim());
       if(newName && newEmail && newAge) {
           span.textContent = 'Name: ' + newName + ', Email: ' + newEmail + ', Age: ' + newAge;
-      }
-     }
+      };
+     };
     };
 });
