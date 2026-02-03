@@ -1,7 +1,12 @@
 let form = document.getElementById('formFill');
 let container = document.getElementById('formDiv');
 let count = 0;
-let totalCount = document.getElementById('count')
+let totalCount = document.getElementById('count');
+let nameInput = document.querySelector('#name');
+let emailInput = document.querySelector('#email');
+let ageInput = document.querySelector('#age');
+
+
 
 form.addEventListener('submit', function(e) {
    e.preventDefault();
@@ -82,6 +87,25 @@ form.addEventListener('submit', function(e) {
       para.append(textSpan);
    };
 });
+
+nameInput.addEventListener('input', () => {
+   if(nameInput.value.trim !== '') {
+      spanName.textContent = '';
+   };
+});
+
+emailInput.addEventListener('input', () => {
+   if(emailInput.value.trim !== '') {
+      spanEmail.textContent = '';
+   };
+});
+
+ageInput.addEventListener('input', () => {
+   if(ageInput.value.trim !== '') {
+      spanAge.textContent = '';
+   }
+})
+
 
 container.addEventListener('click', function(e) {
     if(e.target.classList.contains('delete-btn') && confirm('Are you sure?')) { 
